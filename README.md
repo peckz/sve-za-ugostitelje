@@ -1,36 +1,128 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sve za ugostitelje
 
-## Getting Started
+Minimalistička web stranica za prodaju proizvoda za ugostiteljstvo.
 
-First, run the development server:
+## Funkcionalnosti
+
+- 🏠 **Početna stranica** sa hero sekcijom
+- 📋 **Katalog proizvoda** (PDF pregled)
+- 📧 **Newsletter prijava** (Formspree integracija)
+- 📱 **Responzivni dizajn**
+- ⚡ **Statička generacija** za brze performanse
+
+## Tehnologije
+
+- **Next.js 15** sa App Router
+- **TypeScript**
+- **Tailwind CSS**
+- **Formspree** za newsletter
+- **Cloudflare Pages** za hosting
+
+## Lokalno pokretanje
 
 ```bash
+# Instaliranje dependencija
+npm install
+
+# Pokretanje development servera
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build za produkciju
+npm run build
+
+# Pokretanje production servera
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deployment na Cloudflare Pages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Automatski deployment (preporučeno)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Povezivanje GitHub repozitorijuma:**
+   - Idite na [Cloudflare Dashboard](https://dash.cloudflare.com)
+   - Navigirajte na Pages
+   - Kliknite "Create a project"
+   - Odaberite "Connect to Git"
+   - Odaberite ovaj repozitorijum
 
-## Learn More
+2. **Build konfiguracija:**
+   - **Build command:** `npm run build`
+   - **Build output directory:** `out`
+   - **Root directory:** `sve-za-ugostitelje`
 
-To learn more about Next.js, take a look at the following resources:
+3. **Environment variables:**
+   - Nisu potrebne za osnovnu funkcionalnost
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Manualni deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+# Build aplikacije
+npm run build
 
-## Deploy on Vercel
+# Upload 'out' foldera na Cloudflare Pages
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Konfiguracija domena
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. U Cloudflare Dashboard, idite na Pages
+2. Odaberite svoj projekat
+3. Idite na "Custom domains"
+4. Dodajte `svezaugostitelje.com`
+5. Pratite instrukcije za DNS konfiguraciju
+
+## Newsletter konfiguracija
+
+Newsletter koristi Formspree za besplatno rukovanje formama:
+
+1. Idite na [Formspree.io](https://formspree.io)
+2. Kreirajte nalog
+3. Kreirajte novi form
+4. Zamenite form action URL u `src/app/page.tsx`
+
+Trenutni form endpoint: `https://formspree.io/f/xpwzgkqr`
+
+## Katalog PDF
+
+Zamenite `public/catalogue.pdf` sa vašim stvarnim katalogom proizvoda.
+
+## Customizacija
+
+### Boje
+Glavne boje se mogu promeniti u Tailwind konfiguraciji:
+- **Primarna:** Orange (orange-600)
+- **Sekundarna:** Gray
+- **Akcent:** Red za PDF dugme
+
+### Sadržaj
+Glavni sadržaj se nalazi u `src/app/page.tsx`:
+- Hero tekst
+- Features sekcija
+- Kontakt informacije
+
+### Meta podaci
+SEO i meta podaci se konfigurišu u `src/app/layout.tsx`.
+
+## Struktura projekta
+
+```
+sve-za-ugostitelje/
+├── src/
+│   └── app/
+│       ├── page.tsx          # Glavna stranica
+│       ├── layout.tsx        # Layout i meta podaci
+│       └── globals.css       # Globalni stilovi
+├── public/
+│   └── catalogue.pdf         # PDF katalog
+├── next.config.ts            # Next.js konfiguracija
+└── package.json              # Dependencies
+```
+
+## Podrška
+
+Za tehničku podršku ili pitanja, kontaktirajte:
+- Email: info@svezaugostitelje.com
+- Telefon: +381...
+
+## Licenca
+
+© 2024 Sve za ugostitelje. Sva prava zadržana.
